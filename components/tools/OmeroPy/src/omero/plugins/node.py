@@ -75,9 +75,9 @@ class NodeControl(BaseControl):
         try:
             command = ["icegridnode", self._icecfg()]
             if self._isWindows():
-                command = command + ["--install", "OMERO."+args.node]
+                command = command + ["--install", "OMERO."+args.name]
                 self.ctx.call(command)
-                self.ctx.call(["icegridnode", "--start", "OMERO."+args.node])
+                self.ctx.call(["icegridnode", "--start", "OMERO."+args.name])
             else:
                 command = command + ["--daemon", "--pidfile",
                                      str(self._pid()), "--nochdir"]
